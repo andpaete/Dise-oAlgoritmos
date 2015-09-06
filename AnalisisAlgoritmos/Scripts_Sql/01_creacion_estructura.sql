@@ -57,8 +57,8 @@ create table dbo.estadisticXalgoritmo
 	id_estadisXalgorit		int not null identity(1,1),
 	id_algoritmo			int not null,
 	id_rango				int not null,
+	tiempo_real_cpu         numeric(7,3) not null,
 	tiempo_cpu				numeric(7,3) not null,
-	tiempo_total_eje		numeric(7,3) not null,
 	tiempo_e_s				numeric(7,3) not null,
 	porcentaje_cpu_wall     numeric(7,3) not null
 );
