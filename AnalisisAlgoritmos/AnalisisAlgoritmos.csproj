@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Reportes\Reporte.rdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -74,6 +75,11 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="Scripts_Sql\01_creacion_estructura.sql" />
+    <Content Include="Scripts_Sql\02_sp_insertRegistro.sql" />
+    <Content Include="Scripts_Sql\03_sp_rango.sql" />
+    <Content Include="Scripts_Sql\04_algoritmo.sql" />
+    <Content Include="Scripts_Sql\05_ReporteN1.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +100,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts_Sql\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
