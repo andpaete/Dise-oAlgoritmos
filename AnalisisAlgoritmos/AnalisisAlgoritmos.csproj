@@ -69,6 +69,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Datalayer.dll" />
+    <Content Include="bin\Datalayer.dll.txt" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
