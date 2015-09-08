@@ -25,7 +25,15 @@
 
             <label for="fuCarga" runat="server" id="lblCarga">Seleccione el archivo a cargar</label><br />
             <asp:fileupload runat="server" ID="fuCarga" ></asp:fileupload>&nbsp;&nbsp;&nbsp;
-            <asp:Button runat="server" ID="btnCargar" Text="Cargar" OnClick="btnCargar_Click" />
+            <asp:Button runat="server" ID="btnCargar" Text="Cargar" OnClick="btnCargar_Click" /><br />
+            <asp:RadioButtonList runat="server" ID="rlBtn">
+                <asp:ListItem Selected="True" Text="Burbuja Simple" Value="1"></asp:ListItem>
+                <asp:ListItem Selected="False" Text="Burbuja Mejorada" Value="2"></asp:ListItem>
+                <asp:ListItem Selected="False" Text="Insercion" Value="3"></asp:ListItem>
+                <asp:ListItem Selected="False" Text="Seleccion" Value="4"></asp:ListItem>
+                <asp:ListItem Selected="False" Text="Shell" Value="5"></asp:ListItem>
+                <asp:ListItem Selected="False" Text="Arbol Binario" Value="6"></asp:ListItem>
+            </asp:RadioButtonList>
         </div>
         <asp:validationsummary runat="server" ShowMessageBox="True" ShowSummary="False"></asp:validationsummary>
         </form>
