@@ -19,7 +19,7 @@ namespace AnalisisAlgoritmos.Clases
         /// <param name="tiempo_cpu">Tiempo de CPU que gasto el algoritmo en su ejecucion</param>
         /// <param name="tiempo_e_s">Tiempo de escritura y lectura del disco duro</param>
         /// <param name="porcentaje_cpu_wall">Tiempo de CPU del algoritmo en ejecucion divido entre 100</param>
-        public static void insertarRegistros(Algoritmo idAlgoritmo, int id_rango, double tiempo_real_cpu, double tiempo_cpu, double tiempo_e_s, double porcentaje_cpu_wall)
+        public static void insertarRegistros(Algoritmo idAlgoritmo, int id_rango, double tiempo_real_cpu, long tiempo_cpu, double tiempo_e_s, double porcentaje_cpu_wall)
         {
             try
             {

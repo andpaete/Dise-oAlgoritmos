@@ -85,6 +85,9 @@ namespace AnalisisAlgoritmos
 
         private void metodosOrdenamiento()
         {
+            Process proceso = Process.GetCurrentProcess();
+            Stopwatch cpu = new Stopwatch();
+            cpu.Start();
             switch (int.Parse(rlBtn.SelectedValue))
             {
                 case 1:
@@ -106,13 +109,15 @@ namespace AnalisisAlgoritmos
                     ArbolBinarioBusqueda();
                     break;
             }
+            long cpuTime = cpu.ElapsedTicks; // Tiempo de cpu (Saltos de reloj)
+            double realTime = Math.Round(cpu.ElapsedMilliseconds * 0.001, 2); // Tiempo real, en segundos
+            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
+            double cpuLoad = Math.Round((proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 2); // Porcentaje de carga del cpu para el desarro del algoritmo
+            InsertarRegistros.insertarRegistros(Algoritmo.BurbujaSimple, int.Parse(ddlRango.SelectedValue), realTime, cpuTime, 0, cpuLoad);
         }
 
         private void burbujaSimple()
         {
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             long aux = 0;
             for (int i = 1; i < arrayNumeros.Length; i++)
             {
@@ -126,16 +131,10 @@ namespace AnalisisAlgoritmos
                     }
                 }
             }
-            DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.BurbujaSimple, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds, 
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         private void burbujaMejorado()
         {
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             long aux = 0;
             for (int i = 1; i < arrayNumeros.Length; i++)
             {
@@ -149,16 +148,10 @@ namespace AnalisisAlgoritmos
                     }
                 }
             }
-            DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.BurbujaMejorada, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds,
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         private void insercion()
         {
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             for (int i = 1; i < arrayNumeros.Length; i++)
             {
                 long aux = arrayNumeros[i];
@@ -170,16 +163,10 @@ namespace AnalisisAlgoritmos
                 }
                 arrayNumeros[j + 1] = aux;
             }
-            DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.Insercion, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds, 
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         private void seleccion()
         {
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             long aux = 0;
             for (int i = 0; i < arrayNumeros.Length - 1; i++)
             {
@@ -198,16 +185,10 @@ namespace AnalisisAlgoritmos
                     arrayNumeros[i] = aux;
                 }
             }
-            DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.Seleccion, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds,
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         private void shell()
         {
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             int i = arrayNumeros.Length / 2;
             long aux = 0;
             int k = 0;
@@ -226,24 +207,16 @@ namespace AnalisisAlgoritmos
                 }
                 i /= 2;
             }
-            DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.Shell, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds,
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         private void ArbolBinarioBusqueda()
         { 
-            Process proceso = Process.GetCurrentProcess();
-            System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
-            DateTime currentTime = DateTime.Now;
             foreach (int a in arrayNumeros)
             {
                 insertarNodo(nRaiz, null, a, 0);
             }
             inOrden(nRaiz);
             DateTime finalTime = DateTime.Now;
-            InsertarRegistros.insertarRegistros(Algoritmo.ArbolBinario, int.Parse(ddlRango.SelectedValue), finalTime.Subtract(currentTime).TotalSeconds, 
-                (proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 0.63, (proceso.TotalProcessorTime.TotalMilliseconds / 100));
         }
 
         /// <summary>
