@@ -2,8 +2,7 @@ USE [estaDiseno]
 GO
 
 /****** Object:  StoredProcedure [dbo].[sp_rango]    Script Date: 06/09/2015 6:47:06 p. m. ******/
-DROP PROCEDURE [dbo].[sp_algoritmo]
-GO
+
 
 /****** Object:  StoredProcedure [dbo].[sp_rango]    Script Date: 06/09/2015 6:47:06 p. m. ******/
 SET ANSI_NULLS ON

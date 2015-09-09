@@ -3,12 +3,9 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=APAEZ\SVRDB01;Initial Catalog=estaDiseno</ConnectString>
-      </ConnectionProperties>
-      <rd:SecurityType>DataBase</rd:SecurityType>
-      <rd:DataSourceID>715e4fc5-fcbe-4951-8544-985d8f43aebb</rd:DataSourceID>
+      <DataSourceReference>dsConeccion</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>2da5434f-69b3-4853-aa62-3f1787c01575</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>

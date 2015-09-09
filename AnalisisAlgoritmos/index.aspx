@@ -35,6 +35,7 @@
                 <asp:ListItem Selected="False" Text="Arbol Binario" Value="6"></asp:ListItem>
             </asp:RadioButtonList>
         </div>
+        <asp:Button runat="server" ID="btnReportes" Text="Resultados" OnClick="btnReportes_Click"/>
         <asp:validationsummary runat="server" ShowMessageBox="True" ShowSummary="False"></asp:validationsummary>
         </form>
     </div>

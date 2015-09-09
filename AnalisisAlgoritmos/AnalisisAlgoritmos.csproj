@@ -44,6 +44,7 @@
       <HintPath>bin\Datalayer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -62,7 +63,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reportes\Reporte.rdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,13 +75,16 @@
     <Content Include="bin\Datalayer.dll.txt" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="Resultados\InformeResultados.aspx" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts_Sql\01_creacion_estructura.sql" />
     <Content Include="Scripts_Sql\02_sp_insertRegistro.sql" />
     <Content Include="Scripts_Sql\03_sp_rango.sql" />
     <Content Include="Scripts_Sql\04_algoritmo.sql" />
     <Content Include="Scripts_Sql\05_ReporteN1.sql" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\InsertarRegistros.cs" />
@@ -98,6 +101,13 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultados\InformeResultados.aspx.cs">
+      <DependentUpon>InformeResultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resultados\InformeResultados.aspx.designer.cs">
+      <DependentUpon>InformeResultados.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

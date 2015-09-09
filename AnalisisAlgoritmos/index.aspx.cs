@@ -85,6 +85,7 @@ namespace AnalisisAlgoritmos
 
         private void metodosOrdenamiento()
         {
+            Algoritmo eNum = Algoritmo.BurbujaSimple;
             Process proceso = Process.GetCurrentProcess();
             Stopwatch cpu = new Stopwatch();
             cpu.Start();
@@ -92,28 +93,34 @@ namespace AnalisisAlgoritmos
             {
                 case 1:
                     burbujaSimple();
+                    eNum = Algoritmo.BurbujaSimple;
                     break;
                 case 2:
                     burbujaMejorado();
+                    eNum = Algoritmo.BurbujaMejorada;
                     break;
                 case 3:
                     insercion();
+                    eNum = Algoritmo.Insercion;
                     break;
                 case 4:
                     seleccion();
+                    eNum = Algoritmo.Seleccion;
                     break;
                 case 5:
                     shell();
+                    eNum = Algoritmo.Shell;
                     break;
                 case 6:
                     ArbolBinarioBusqueda();
+                    eNum = Algoritmo.ArbolBinario;
                     break;
             }
             long cpuTime = cpu.ElapsedTicks; // Tiempo de cpu (Saltos de reloj)
             double realTime = Math.Round(cpu.ElapsedMilliseconds * 0.001, 2); // Tiempo real, en segundos
             System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
             double cpuLoad = Math.Round((proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 2); // Porcentaje de carga del cpu para el desarro del algoritmo
-            InsertarRegistros.insertarRegistros(Algoritmo.BurbujaSimple, int.Parse(ddlRango.SelectedValue), realTime, cpuTime, 0, cpuLoad);
+            InsertarRegistros.insertarRegistros(eNum, int.Parse(ddlRango.SelectedValue), realTime, cpuTime, 0, cpuLoad);
         }
 
         private void burbujaSimple()
@@ -275,6 +282,11 @@ namespace AnalisisAlgoritmos
         }
 
         #endregion
+
+        protected void btnReportes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Resultados/InformeResultados.aspx");
+        }
 
     }
 }
