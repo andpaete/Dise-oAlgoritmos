@@ -1,7 +1,9 @@
-SET ANSI_NULLS ON
+USE [estaDiseno]
 GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+if object_id('[dbo].[sp_rango]','P') is not null drop procedure [dbo].[sp_rango]
+go
+
 create PROCEDURE [dbo].[sp_rango]
 	
 AS

@@ -64,6 +64,11 @@ namespace AnalisisAlgoritmos
             }
         }
 
+        protected void btnCargarTodo_Click(object sender, EventArgs e)
+        {
+            ejecutarCompleto();
+        }
+
         #endregion
 
         #region "Metodos"
@@ -116,7 +121,7 @@ namespace AnalisisAlgoritmos
                     eNum = Algoritmo.ArbolBinario;
                     break;
             }
-            long cpuTime = cpu.ElapsedTicks; // Tiempo de cpu (Saltos de reloj)
+            double cpuTime = Math.Round(cpu.ElapsedTicks * 0.000000001, 2); // Tiempo de cpu (Saltos de reloj)
             double realTime = Math.Round(cpu.ElapsedMilliseconds * 0.001, 2); // Tiempo real, en segundos
             System.TimeSpan lifeInterval = (DateTime.Now - proceso.StartTime);
             double cpuLoad = Math.Round((proceso.TotalProcessorTime.TotalMilliseconds / lifeInterval.TotalMilliseconds) * 100, 2); // Porcentaje de carga del cpu para el desarro del algoritmo
@@ -281,6 +286,24 @@ namespace AnalisisAlgoritmos
             }
         }
 
+        private void ejecutarCompleto()
+        {
+            DataTable dtalgoritmo = InsertarRegistros.obtenerAlgoritmos();
+            DataTable dtrango = InsertarRegistros.obtenerRangos();
+            if (dtalgoritmo != null)
+            {
+                foreach (DataRow dr in dtalgoritmo.Rows)
+                {
+                    rlBtn.SelectedValue = dr["id_algoritmo"].ToString();
+                    foreach (DataRow drRango in dtrango.Rows)
+                    {
+                        cant_numeros = long.Parse(drRango["valorFinal"].ToString());
+                        ddlRango.SelectedValue = drRango["id_rango"].ToString();
+                        cargarNumeros(System.IO.Path.Combine(Server.MapPath("~/Cargas"), "numeros10millones.txt"));
+                    }
+                }
+            }
+        }
         #endregion
 
         protected void btnReportes_Click(object sender, EventArgs e)

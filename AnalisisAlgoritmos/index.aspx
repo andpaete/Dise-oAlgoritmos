@@ -26,6 +26,7 @@
             <label for="fuCarga" runat="server" id="lblCarga">Seleccione el archivo a cargar</label><br />
             <asp:fileupload runat="server" ID="fuCarga" ></asp:fileupload>&nbsp;&nbsp;&nbsp;
             <asp:Button runat="server" ID="btnCargar" Text="Cargar" OnClick="btnCargar_Click" /><br />
+            <asp:Button runat="server" ID="btnCargarTodo" Text="CargarTodo" OnClick="btnCargarTodo_Click" /><br />
             <asp:RadioButtonList runat="server" ID="rlBtn">
                 <asp:ListItem Selected="True" Text="Burbuja Simple" Value="1"></asp:ListItem>
                 <asp:ListItem Selected="False" Text="Burbuja Mejorada" Value="2"></asp:ListItem>
